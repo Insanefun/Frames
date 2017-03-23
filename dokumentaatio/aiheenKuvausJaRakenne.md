@@ -5,6 +5,6 @@ Pyritään luomaan tapa pelattavan hahmon kehittämiseen ja tapahtumien satunnaisuu
 **Käyttäjät:** Pelaaja
 **Pelaajan toiminnot:** 
 
--Pelin aloitus
--Valintojen tekeminen
--Hahmon kehitys
+-Pelin aloitus  <br />
+-Valintojen tekeminen  <br />
+-Hahmon kehitys <br />
