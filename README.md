@@ -2,7 +2,7 @@
 Yksinkertainen roolipeli jossa p‰‰paino on satunaisesti generoiduilla tapahtumilla ja taisteluilla. <br />
 K‰ytt‰j‰ saa tietoa tilanteista tekstin muodossa ja h‰n voi reagoida annettujen vaihtoehtojen puitteissa.
 <br />  
-###Dokumentaation  
+### Dokumentaation  
 
 [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md) <br />
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md) <br />
