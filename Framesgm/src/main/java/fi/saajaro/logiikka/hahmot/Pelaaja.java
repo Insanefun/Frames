@@ -2,18 +2,51 @@ package fi.saajaro.logiikka.hahmot;
 
 import fi.saajaro.logiikka.randomnumbergod.Rng;
 import java.util.HashMap;
-
+/**
+ * Luokka joka pitää sisällään monia pelaajan hahmoon liittyviä metodeja.
+ */
 public class Pelaaja {
+    /**
+     * Olion arvo joka asettaa maksimi arvon currentHplle.
+     * @@see fi.saajaro.logiikka.hahmot.Pelaaja#currentHp
+     */
 
     private int hp;
+    /**
+     * Olion arvo joka laskee tehdyn vaurion arvon.
+     */
     private int streight;
+    /**
+     * Olion muutuuja jonka avulla lasketaan sen metodien arvoja.
+     */
     private int agility;
+    /**
+     * Olion muuttuja jonka laskiessa olle yhden peliä ei voi jatkaa.
+     */
     private int currentHp;
+    /**
+     * Olion arvo jonka noustessa määriteltyyn arvoon olion sp arvo nousee kolmella.
+     */
     private int xp;
+    /**
+     * Olion arvo jota käytetään laskettaessa hyökkäysten tehokkuutta.
+     */
     private int level;
+    /**
+     * Olion arvo joka säätelee muiden olion arvojen kasvatusta.
+     */
     private int sp;
+    /**
+     * Olion arvo jonka ollessa yksi olio tekee enemmän vauriota.
+     */
     private int attackBonus;
+    /**
+     * Olion bonusDefence arvo jonka ollessa yksi otettu vaurio on pienempi.
+     */
     private int bonusDefence;
+    /**
+     * Olion alive arvo jonka ollessa false peliä ei voi jatkaa.
+     */
     private boolean alive;
 
     public Pelaaja() {
@@ -29,6 +62,13 @@ public class Pelaaja {
         this.alive = true;
 
     }
+    /**
+     * Nostaa olion xp arvoa parametrina saadun määrän ja jos asetettu raja ylitetään
+     * nostetaan olion level muuttujaa ja asetetaan sen xp nollaan.
+     * @param exp saatu xp
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#xp
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#level
+     */
 
     public void gainXp(int exp) {
         this.xp = this.xp + exp;
@@ -39,6 +79,11 @@ public class Pelaaja {
         }
 
     }
+    /**
+     * Nostaa olion streight arvoa ja laskee sen sp arvoa yhdellä.
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#streight
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#sp
+     */
 
     public void gainStreight() {
         if (this.sp > 0) {
@@ -46,6 +91,12 @@ public class Pelaaja {
             this.sp--;
         }
     }
+    /**
+     * Nostaa olion hp ja currentHp arvoja ja laskee sen sp arvoa yhdellä.
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#hp
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#currentHp
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#sp
+     */
 
     public void gainHp() {
         if (this.sp > 0) {
@@ -54,6 +105,11 @@ public class Pelaaja {
             this.sp--;
         }
     }
+    /**
+     * Nostaa olion agility arvoa ja laskee sen sp arvoa.
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#agility
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#sp
+     */
 
     public void gainAgility() {
         if (this.sp > 0) {
@@ -61,6 +117,12 @@ public class Pelaaja {
             this.sp--;
         }
     }
+    /**
+     * Laskee olion currentHp arvoa laskettuaan lopullisen damage arvon saadusta damage 
+     * arvosta. Muutta olion alive arvoksi false jos laskee currentHp arvon alle yhteen.
+     * @param damage oletus arvoinen damage
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#currentHp
+     */
 
     public void takeDamage(int damage) {
         int take = this.calcDamageTaken(damage);
@@ -74,6 +136,13 @@ public class Pelaaja {
         }
 
     }
+    /**
+     * Olion metodi joka laskee otetun vaurion suuruden ja jos oliolla on bonusDefence arvo 1
+     * laskee vaurion suuruutta.
+     * @param damage saatu damage arvo
+     * @return mahdollisesti muuttunut damage arvo
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#bonusDefence
+     */
 
     public int calcDamageTaken(int damage) {
         if (this.bonusDefence == 1) {
@@ -83,6 +152,12 @@ public class Pelaaja {
         }
         return damage;
     }
+    /**
+     * olion metodi jota kutsuttaessa saadaan selville sen damage arvo. 
+     * Käyttää apunaan metodia calcDamage.
+     * @return laskettu damage arvo
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#calcDamage(int) 
+     */
 
     public int dealDamage() {
         int ignoredStr = this.streight % 2;
@@ -90,6 +165,13 @@ public class Pelaaja {
         int damage = calcDamage(1 + strDmg);
         return damage;
     }
+    /**
+     * laskee parametrina saadun damagen loppu arvon käyttämällä apunaan metodeja crit() ja damageBonus().
+     * @param damage parametrina saatu damage jonka loppu arvo lasketaan
+     * @return damagen loppu arvo
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#crit(int) 
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#damageBonus(int) 
+     */
 
     public int calcDamage(int damage) {
         damage = crit(damage);
@@ -97,6 +179,12 @@ public class Pelaaja {
 
         return damage;
     }
+    /**
+     * Metodi joka luo satunnaisluvun käyttäen Rng oliota ja muokkaa parametrinä saatua
+     * damage arvoa jos oliolle laskettava critchance on suurempi kuin arvottu satunnaisluku.
+     * @param damage parametrina saatu hyökkäyksen oletus damage arvo
+     * @return mahdollisesti muuttunut hyökkäyksen damage arvo
+     */
 
     public int crit(int damage) {
         int critchance = this.agility * 3 - this.level - 2;
@@ -109,6 +197,12 @@ public class Pelaaja {
         }
         return damage;
     }
+    /**
+     * Metodi joka tarkistaa onko oliolla attackBonusta ja lisää parametrinä annettua
+     * damage arvoa riippuen attackBonus arvosta ja asettaa attackBonuksen nollaan.
+     * @param damage parametrina saatu hyökkäyksen oletus damage arvo
+     * @return mahdollisesti muuttunut damage arvo
+     */
 
     public int damageBonus(int damage) {
         if (this.attackBonus == 1) {
@@ -118,16 +212,36 @@ public class Pelaaja {
         }
         return damage;
     }
+    /**
+     * Metodi jota kutsuttaessa olion attackBonus ja bonusDefence arvot asettuvat yhteen.
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#attackBonus
+     * @see fi.saajaro.logiikka.hahmot.Pelaaja#bonusDefence
+     */
 
     public void block() {
         this.attackBonus = 1;
         this.bonusDefence = 1;
     }
+    /**
+     * Metodi joka antaa tietoa parametrina annetusta kohteesta.
+     * @param enemy kohde johon metodia käytetään.
+     * @return palauttaa String muotoisen esityksen kohteesta.
+     */
 
-    public void tattle(Mobs enemy) {
-        System.out.println("You: " + this.toString());
-        System.out.println("Enemy " + enemy.toString());
+    public String tattle(Mobs enemy) {
+        return "Enemy " + enemy.toString();
     }
+    /**
+     * Metodi joka helpottaa olion toString() metodin kutsua.
+     * @return palauttaa olion tärkeät arvot.
+     */
+    public String selfTattle() {
+        return "You: " + this.toString();
+    }
+    /**
+     * Luo oliosta String muotoisen esityksen.
+     * @return palauttaa olion String muotoisen esityksen
+     */
 
     @Override
     public String toString() {
@@ -135,33 +249,40 @@ public class Pelaaja {
                 + this.xp + " level " + this.level + " skill points " + this.sp;
     }
 
-    public int currentXp() {
+    public int getCurrentXp() {
         return this.xp;
     }
 
-    public int currentLevel() {
+    public int getCurrentLevel() {
         return this.level;
     }
 
-    public int tellMaxHp() {
+    public int getlMaxHp() {
         return this.hp;
     }
 
-    public int tellCurrentHp() {
+    public int getCurrentHp() {
         return this.currentHp;
     }
 
-    public int tellStreight() {
+    public int getStreight() {
         return this.streight;
     }
 
-    public int tellAgility() {
+    public int getAgility() {
         return this.agility;
     }
 
-    public int tellSp() {
+    public int getSp() {
         return this.sp;
     }
+    public int getAttackBonus() {
+        return this.attackBonus;
+    }
+    /**
+     * Kertoo muille metodeille olion alive arvon.
+     * @return olion alive arvoa vastaava boolean arvo
+     */
 
     public boolean tellIfAlive() {
         boolean life = true;
@@ -170,6 +291,11 @@ public class Pelaaja {
         }
         return life;
     }
+    /**
+     * Nostaa olion currentHp arvoa parametrinä saadun arvon verran.
+     * Ei nosta currentHp arvoa yli olion hp arvon.
+     * @param heal joltain esineeltä saatu parannus arvo
+     */
 
     public void heal(int heal) {
         this.currentHp = this.currentHp + heal;
@@ -177,7 +303,11 @@ public class Pelaaja {
             this.currentHp = this.hp;
         }
     }
-
+    /**
+     * Metodi kertoo kyseinen Pelaaja olio vähentää vihollisen mahdollisuutta väistää.
+     * Käyttää olion agility arvoa.
+     * @return kuinka paljon vaikeampi olion hyökkäyksiä on väistää
+     */
     public int hitBonus() {
         return this.agility * 2;
     }

@@ -31,42 +31,42 @@ public class PelaajaTest {
     @Test
     public void currentXpPalauttaaArvon() {
         Pelaaja hero = new Pelaaja();
-        assertEquals(0, hero.currentXp());
+        assertEquals(0, hero.getCurrentXp());
     }
 
     @Test
     public void gainXpMuuttaaXpArvoa() {
         Pelaaja hero = new Pelaaja();
         hero.gainXp(6);
-        assertEquals(6, hero.currentXp());
+        assertEquals(6, hero.getCurrentXp());
     }
 
     @Test
     public void gainXpMuuttaaTasoa() {
         Pelaaja hero = new Pelaaja();
         hero.gainXp(11);
-        assertEquals(2, hero.currentLevel());
+        assertEquals(2, hero.getCurrentLevel());
     }
 
     @Test
     public void tasonSaantiAsettaaXpnNollaan() {
         Pelaaja hero = new Pelaaja();
         hero.gainXp(1000000);
-        assertEquals(0, hero.currentXp());
+        assertEquals(0, hero.getCurrentXp());
     }
 
     @Test
     public void vaurioLaskeeCurrentHealth() {
         Pelaaja hero = new Pelaaja();
         hero.takeDamage(5);
-        assertEquals(5, hero.tellCurrentHp());
+        assertEquals(5, hero.getCurrentHp());
     }
 
     @Test
     public void vaurioEiLaskeHp() {
         Pelaaja hero = new Pelaaja();
         hero.takeDamage(2);
-        assertEquals(10, hero.tellMaxHp());
+        assertEquals(10, hero.getlMaxHp());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class PelaajaTest {
     public void gainStreightToimiiKunSp() {
         Pelaaja hero = new Pelaaja();
         hero.gainStreight();
-        assertEquals(2, hero.tellStreight());
+        assertEquals(2, hero.getStreight());
     }
 
     @Test
@@ -91,14 +91,14 @@ public class PelaajaTest {
         hero.gainStreight();
         hero.gainStreight();
         hero.gainStreight();
-        assertEquals(6, hero.tellStreight());
+        assertEquals(6, hero.getStreight());
     }
 
     @Test
     public void gainAgilityToimiiKunSp() {
         Pelaaja hero = new Pelaaja();
         hero.gainAgility();
-        assertEquals(2, hero.tellAgility());
+        assertEquals(2, hero.getAgility());
     }
 
     @Test
@@ -110,14 +110,14 @@ public class PelaajaTest {
         hero.gainAgility();
         hero.gainAgility();
         hero.gainAgility();
-        assertEquals(6, hero.tellAgility());
+        assertEquals(6, hero.getAgility());
     }
 
     @Test
     public void gainHpToimiiKunSp() {
         Pelaaja hero = new Pelaaja();
         hero.gainHp();
-        assertEquals(11, hero.tellMaxHp());
+        assertEquals(11, hero.getlMaxHp());
     }
 
     @Test
@@ -129,14 +129,14 @@ public class PelaajaTest {
         hero.gainHp();
         hero.gainHp();
         hero.gainHp();
-        assertEquals(15, hero.tellMaxHp());
+        assertEquals(15, hero.getlMaxHp());
     }
 
     @Test
     public void gainHpNostaaCurrentHp() {
         Pelaaja hero = new Pelaaja();
         hero.gainHp();
-        assertEquals(11, hero.tellCurrentHp());
+        assertEquals(11, hero.getCurrentHp());
     }
 
     @Test
@@ -173,7 +173,7 @@ public class PelaajaTest {
         hero.gainAgility();
         hero.block();
         hero.takeDamage(6);
-        assertEquals(6, hero.tellCurrentHp());
+        assertEquals(6, hero.getCurrentHp());
     }
 
     @Test
@@ -187,14 +187,14 @@ public class PelaajaTest {
     public void otettuDamageEiNegatiivinen() {
         Pelaaja hero = new Pelaaja();
         hero.takeDamage(-3);
-        assertEquals(10, hero.tellCurrentHp());
+        assertEquals(10, hero.getCurrentHp());
     }
 
     @Test
     public void healEiOverHeal() {
         Pelaaja hero = new Pelaaja();
         hero.heal(1);
-        assertEquals(10, hero.tellCurrentHp());
+        assertEquals(10, hero.getCurrentHp());
     }
 
     @Test
@@ -207,20 +207,31 @@ public class PelaajaTest {
     public void levelTuleeOikein() {
         Pelaaja hero = new Pelaaja();
         hero.gainXp(10);
-        assertEquals(2, hero.currentLevel());
+        assertEquals(2, hero.getCurrentLevel());
     }
 
     @Test
     public void spTuleeOikein() {
         Pelaaja hero = new Pelaaja();
         hero.gainXp(10);
-        assertEquals(8, hero.tellSp());
+        assertEquals(8, hero.getSp());
     }
 
     @Test
     public void critChanceOikeinKunNolla() {
         Pelaaja hero = new Pelaaja();
         assertEquals(1, hero.crit(1));
+    }
+    @Test
+    public void tattleSelfPalauttaOikein() {
+        Pelaaja hero = new Pelaaja();
+        assertEquals("You: " + hero.toString(), hero.selfTattle());
+    }
+    @Test
+    public void otettuDamageEiNegatiivinenSuurilla() {
+        Pelaaja hero = new Pelaaja();
+        hero.takeDamage(-1);
+        assertEquals(10,hero.getCurrentHp());
     }
 
 }

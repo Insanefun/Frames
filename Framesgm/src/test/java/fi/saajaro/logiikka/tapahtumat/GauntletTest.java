@@ -44,4 +44,43 @@ public class GauntletTest {
         Mobs enemy = Gauntlet.generateEnemy();
         assertEquals(Boolean.TRUE, enemy.tellAlive());
     }
+    @Test
+    public void actionAttacktoimii() {
+        Pelaaja hero = new Pelaaja();
+        Mobs enemy = new Mobs("Powercreep", 10, 1, 0, 0, 100);
+        Gauntlet.action(enemy, hero , "A");
+        assertEquals(9,enemy.getHp());
+    }
+    @Test
+    public void vihollinenIskeeKunAction() {
+        Pelaaja hero = new Pelaaja();
+        Mobs enemy = new Mobs("Powercreep", 10, 1, 0, 0, 100);
+        Gauntlet.action(enemy, hero , "A");
+        assertEquals(9,hero.getCurrentHp());
+    }
+    @Test
+    public void actionDefendNostaaSeuraavaaIskua() {
+        Pelaaja hero = new Pelaaja();
+        Mobs enemy = new Mobs("Powercreep", 10, 1, 0, 0, 100);
+        Gauntlet.action(enemy, hero , "D");
+        assertEquals(1, hero.getAttackBonus());
+    }
+        @Test
+    public void kehitaNostaaAgility() {
+        Pelaaja hero = new Pelaaja();
+        Gauntlet.kehita(hero, "A");
+        assertEquals(2, hero.getAgility());
+    }
+    @Test
+    public void kehitaNostaaStr() {
+        Pelaaja hero = new Pelaaja();
+        Gauntlet.kehita(hero, "S");
+        assertEquals(2, hero.getStreight());
+    }
+        @Test
+    public void kehitaNostaaHp() {
+        Pelaaja hero = new Pelaaja();
+        Gauntlet.kehita(hero, "D");
+        assertEquals(11, hero.getCurrentHp());
+    }
 }
