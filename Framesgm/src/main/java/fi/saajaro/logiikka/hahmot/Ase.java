@@ -30,7 +30,7 @@ public class Ase {
      * Metodi aktivoi olion erityis ominaisuuden jos sillä sellainen on.
      */
     public void trigger() {
-        if (this.effect == 1){   //Jos luodaan lisää luo oma luokka.
+        if (this.effect == 1) {   //Jos luodaan lisää luo oma luokka.
             user.heal(damage);
         }
     }
