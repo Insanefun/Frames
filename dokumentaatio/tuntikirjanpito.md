@@ -10,3 +10,6 @@ Päivä | Tunnit | Kuvaus
 03.04.2017 | 3h | Javadoc dokumentoinnin aloitus
 05.04.2017 | 2h | Käyttöliittymän suunnittelu ja koodauksen aloitus
 06.04.2017 | 3h | Uuden luokan koodaus, testien laajennus, javadoc dokumentaatio ja raporttien luonti
+18.04.2017 | 2h | Käyttöjärjestelmä
+19.04.2017 | 9h | Luokkien uudelleen määrittely vanhojen luokkien kopiointi ja tiedostojen etsiminen
+20.04.2017 | 10h | Uuden luokan koodaus, raporttien luonti ja vanhojen luokkien etsimine

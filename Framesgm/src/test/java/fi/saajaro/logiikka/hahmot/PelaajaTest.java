@@ -222,16 +222,18 @@ public class PelaajaTest {
         Pelaaja hero = new Pelaaja();
         assertEquals(1, hero.crit(1));
     }
+
     @Test
     public void tattleSelfPalauttaOikein() {
         Pelaaja hero = new Pelaaja();
         assertEquals("You: " + hero.toString(), hero.selfTattle());
     }
+
     @Test
     public void otettuDamageEiNegatiivinenSuurilla() {
         Pelaaja hero = new Pelaaja();
         hero.takeDamage(-1);
-        assertEquals(10,hero.getCurrentHp());
+        assertEquals(10, hero.getCurrentHp());
     }
 
 }

@@ -3,6 +3,7 @@ package fi.saajaro.logiikka.randomnumbergod;
 import java.util.Random;
 
 public class Rng {
+
     /**
      * Arvo jota suurenpi satunnaisluvun on oltava jotta palautettaisi false.
      */
@@ -11,8 +12,10 @@ public class Rng {
      * suurin mahdollinen arvo jonka satunnaisluku voi saada.
      */
     private int suurin;
+
     /**
      * Asettaa olion arvon arvo ja arvon suurin parametreinä saatuihin arvoihin.
+     *
      * @param arvo asettaa olion arvon arvoksi saadun arvon
      * @param suurin asettaa olion arvon suurin arvoksi saadun arvon
      */
@@ -21,9 +24,12 @@ public class Rng {
         this.suurin = suurin;
 
     }
+
     /**
-     * Metodi joka arpoo satunnaisluvun joka on enintään olioon tallennettu suurin arvo
-     * ja tarkistaa onko se suurenpi kuin olioon tallennettu arvo arvo.
+     * Metodi joka arpoo satunnaisluvun joka on enintään olioon tallennettu
+     * suurin arvo ja tarkistaa onko se suurenpi kuin olioon tallennettu arvo
+     * arvo.
+     *
      * @return palauttaa true jos arvo oli suurenpi kuin arvottu luku
      */
     public boolean randomNumber() {

@@ -36,6 +36,11 @@ public class Mobs {
      * Olion muttuja jonka ollessa false olio on kukistettu.
      */
     private boolean alive;
+    /**
+     * Olion muutuja joka tallentaa viimeisen sille tapahtuneen asian String
+     * muodossa.
+     */
+    private String toiminta;
 
     public Mobs(String nimi, int hp, int damage, int critical, int dodge, int xpYield) {
         this.nimi = nimi;
@@ -55,7 +60,6 @@ public class Mobs {
      * @return palauttaa lasketun vaurio määrän
      * @see fi.saajaro.logiikka.randomnumbergod.Rng#Rng(int, int)
      */
-
     public int attack() {
         Rng k = new Rng(this.critical, 255);
         if (k.randomNumber() == true) {
@@ -73,18 +77,17 @@ public class Mobs {
      * @param dmg vaurio jonka olio kärsii jos hyökkäys osuu
      * @see fi.saajaro.logiikka.hahmot.Mobs#dodgeRoll()
      */
-
     public void takeDamage(int dmg) {
         if (this.dodgeRoll() == true) {
             this.currentHp = this.currentHp;
-            //System.out.println("Dodge");
+            this.toiminta = "Dodge";
             this.hitDetector(false, dmg);
         } else {
             if (dmg < 0) {
                 dmg = 0;
             }
             this.currentHp = this.currentHp - dmg;
-            System.out.println(this.hitDetector(true, dmg));
+            this.toiminta = (this.hitDetector(true, dmg));
         }
         if (this.currentHp < 1) {
             this.alive = false;
@@ -98,7 +101,6 @@ public class Mobs {
      * @return totuus arvo olion väistöstä
      * @see fi.saajaro.logiikka.randomnumbergod.Rng#Rng(int, int)
      */
-
     public boolean dodgeRoll() {
         Rng miss = new Rng(this.dodge, 100);
         if (miss.randomNumber() == true) {
@@ -119,7 +121,6 @@ public class Mobs {
      *
      * @return String esitys olion kohtaamisesta
      */
-
     public String encounter() {
         return "Encountered " + this.nimi;
     }
@@ -129,13 +130,16 @@ public class Mobs {
      *
      * @return olion xpYield arvo
      */
-
     public int giveXp() {
         return this.xpYield;
     }
 
     public int getHp() {
         return this.currentHp;
+    }
+
+    public String getToiminta() {
+        return this.toiminta;
     }
 
     /**
