@@ -10,5 +10,5 @@ Pyrit‰‰n luomaan tapa pelattavan hahmon kehitt‰miseen ja tapahtumien satunnaisuu
 -Hahmon kehitys <br />
 
 
-![lopetus kaavio](dokumentaatio/kaaviot/Peliohi.png) <br />
-![aloitus kaavio](dokumentaatio/kaaviot/pelinaloitus.png) 
+![lopetus kaavio](kaaviot/Peliohi.png) <br />
+![aloitus kaavio](kaaviot/pelinaloitus.png) 
