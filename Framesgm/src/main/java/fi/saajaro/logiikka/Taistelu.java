@@ -34,10 +34,12 @@ public class Taistelu {
         this.alpha = alpha;
         this.teksti = alpha.getTeksti();
         this.osoitin = 1;
+        this.hero = alpha.getHero();
     }
 
     public void taisto() {
         if (this.osoitin == 1) {
+            this.hero.heal(this.hero.getAgility());
             ArrayList<JButton> k = new ArrayList();
             k.add(a);
             k.add(s);

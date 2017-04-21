@@ -13,3 +13,4 @@ Päivä | Tunnit | Kuvaus
 18.04.2017 | 2h | Käyttöjärjestelmä
 19.04.2017 | 9h | Luokkien uudelleen määrittely vanhojen luokkien kopiointi ja tiedostojen etsiminen
 20.04.2017 | 10h | Uuden luokan koodaus, raporttien luonti ja vanhojen luokkien etsimine
+21.04.2017 | 1h | Satunnais muuttujien lisäys luokkiin.

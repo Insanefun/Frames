@@ -3,6 +3,7 @@ package fi.saajaro.logiikka.tapahtumat;
 import fi.saajaro.logiikka.hahmot.Mobs;
 import fi.saajaro.logiikka.hahmot.Pelaaja;
 import fi.saajaro.logiikka.moodit.Moodi;
+import fi.saajaro.logiikka.randomnumbergod.Rng;
 import java.util.Scanner;
 import javax.swing.JTextArea;
 
@@ -60,9 +61,38 @@ public class Gauntlet {
      * @return
      */
     public static Mobs generateEnemy() {
-        Mobs enemy = new Mobs("Powercreep", 10, 1, 0, 30, 100);
+        Rng vihollisArpoja = new Rng(70, 100);
+        
+            //Mobs enemy = new Mobs("Powercreep", 10, 1, 0, 30, 100);
+            String nimi = "Powercreep";
+            int hp = 10;
+            int damage = 1;
+            int crit = 0;
+            int dodge = 30;
+            int xp = 100;
+        
+            Rng toinenVihollisArpoja = new Rng(80, 100);
+            if (vihollisArpoja.randomNumber()) {
+                //Mobs enemy = new Mobs("Spearman", 6, 1, 0, 50, 200);
+                 nimi = "Spearman";
+                 hp = 6;
+                damage = 1;
+                crit = 0;
+                dodge = 50;
+                xp = 200;
+            } else if(toinenVihollisArpoja.randomNumber()){
+                //Mobs enemy = new Mobs("lolcat", 50, 0, 0, 60, 500);
+                nimi = "Powercreep";
+                hp = 50;
+                damage = 0;
+                crit = 0;
+                 dodge = 50;
+                 xp = 500;
+            }
+            Mobs enemy = new Mobs(nimi, hp, damage, crit, dodge, xp);
         return enemy;
-    }
+        }
+    
 
     /**
      * Metodi joka toimii kohtaamisien viestin viejänä.
