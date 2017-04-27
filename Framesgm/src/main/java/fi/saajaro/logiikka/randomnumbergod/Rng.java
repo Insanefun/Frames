@@ -1,7 +1,9 @@
 package fi.saajaro.logiikka.randomnumbergod;
 
 import java.util.Random;
-
+/**
+ * Luokka jonka tehtävänä on satunnaislukujen luonti ja niiden vertailu annettuihin arvoihin.
+ */
 public class Rng {
 
     /**

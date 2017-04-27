@@ -1,5 +1,6 @@
 package fi.saajaro.gui;
 
+import static fi.saajaro.gui.AloitusNappi.NL;
 import fi.saajaro.logiikka.Taistelu;
 import fi.saajaro.logiikka.hahmot.Mobs;
 import fi.saajaro.logiikka.hahmot.Pelaaja;
@@ -23,7 +24,7 @@ public class HyokkaysNappi implements ActionListener {
     private JButton s;
     private JButton d;
 
-    public HyokkaysNappi(JTextArea kohde, Moodi alpha, String komento, Mobs enemy, Taistelu kappa) {
+    public HyokkaysNappi(JTextArea kohde, Moodi alpha, String komento, Mobs enemy) {
         this.hero = alpha.getHero();
         this.kohde = kohde;
         this.komento = komento;
@@ -59,7 +60,9 @@ public class HyokkaysNappi implements ActionListener {
                 hero.gainXp(enemy.giveXp());
                 alpha.getTeksti().setText("Gained " + enemy.giveXp() + " xp");
                 if (hero.getSp() > 0) {
-                    alpha.getTeksti().setText("Unused skillpoints " + hero.getSp());
+                    alpha.getTeksti().setText("Enemy defeated: Unused skillpoints " + hero.getSp() + NL + "Agility gives small bonus to crit chance, hit chance and blocked damage "
+                            + NL + " Streight increases damage " + NL
+                            + " Hp gives you more durability, lose it all and you die.");
                     ArrayList<JButton> k = new ArrayList();
                     k.add(a);
                     k.add(s);

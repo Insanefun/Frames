@@ -59,6 +59,9 @@ public class Pelaaja {
     private String toiminta;
 
     //private Ase ase;
+    /**
+     * Olion oletus konstruktori jolle ei anneta arvoja vaan se ainoastaan varmistaa että kaikki arvot ovat oikein.
+     */
     public Pelaaja() {
         this.hp = 10;
         this.streight = 1;
@@ -151,7 +154,7 @@ public class Pelaaja {
             take = 0;
         }
         this.currentHp = this.currentHp - take;
-        this.toiminta = ("You took " + take + " damage.");
+        this.toiminta = ("You took " + take + " damage from the attack of the enemy.");
         if (this.currentHp < 1) {
             this.alive = false;
         }

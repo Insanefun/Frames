@@ -29,9 +29,9 @@ public class AloitusNappi implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        this.kohde.setText("Agility gives small bonus to crit chance, hit chance and blocked damage "
-                + NL + " Streight increases damage " + NL
-                + " Hp gives you more durability, lose it all and you die.");
+        this.kohde.setText("Agility gives small bonus to crit chance, hit chance and blocked damage( choose A) "
+                + NL + " Streight increases damage(choose S) " + NL
+                + " Hp gives you more durability, lose it all and you die.(choose D)");
 
         Demo alpha = new Demo(this.hero, kohdeA, kohdeS, kohdeD, kohde);
         StreightKehitysNappi str = new StreightKehitysNappi(this.kohde, alpha);

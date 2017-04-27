@@ -6,7 +6,9 @@ import fi.saajaro.logiikka.moodit.Moodi;
 import fi.saajaro.logiikka.randomnumbergod.Rng;
 import java.util.Scanner;
 import javax.swing.JTextArea;
-
+/**
+ * Luokka joka auttaaa taisteluiden alustamisessa ja ylläpitämisessä.
+ */
 public class Gauntlet {
 
     public static final String NL = System.getProperty("line.separator");
@@ -42,7 +44,7 @@ public class Gauntlet {
      * fi.saajaro.logiikka.tapahtumat.Gauntlet#turn(fi.saajaro.logiikka.hahmot.Mobs,
      * fi.saajaro.logiikka.hahmot.Pelaaja)
      */
-    public void battle(Moodi alpha) {
+    /*/public void battle(Moodi alpha) {
         Pelaaja hero = alpha.getHero();
         Mobs enemy = Gauntlet.generateEnemy();
         enemy.modifyDodge(hero.hitBonus());
@@ -51,9 +53,8 @@ public class Gauntlet {
             alpha.getTeksti().setText(alpha.getTeksti().getText() + NL + "Choose a command: A = Attack, S = Tattle, D = Defend");
             Gauntlet.turn(enemy, alpha);
         }
-        Gauntlet.afterBattle(hero, enemy);
 
-    }
+    }/*/
 
     /**
      * Metodi joka luo vihollisen kohtaamisen alussa.
@@ -62,37 +63,36 @@ public class Gauntlet {
      */
     public static Mobs generateEnemy() {
         Rng vihollisArpoja = new Rng(70, 100);
-        
-            //Mobs enemy = new Mobs("Powercreep", 10, 1, 0, 30, 100);
-            String nimi = "Powercreep";
-            int hp = 10;
-            int damage = 1;
-            int crit = 0;
-            int dodge = 30;
-            int xp = 100;
-        
-            Rng toinenVihollisArpoja = new Rng(80, 100);
-            if (vihollisArpoja.randomNumber()) {
-                //Mobs enemy = new Mobs("Spearman", 6, 1, 0, 50, 200);
-                 nimi = "Spearman";
-                 hp = 6;
-                damage = 1;
-                crit = 0;
-                dodge = 50;
-                xp = 200;
-            } else if(toinenVihollisArpoja.randomNumber()){
-                //Mobs enemy = new Mobs("lolcat", 50, 0, 0, 60, 500);
-                nimi = "Powercreep";
-                hp = 50;
-                damage = 0;
-                crit = 0;
-                 dodge = 50;
-                 xp = 500;
-            }
-            Mobs enemy = new Mobs(nimi, hp, damage, crit, dodge, xp);
-        return enemy;
+
+        //Mobs enemy = new Mobs("Powercreep", 10, 1, 0, 30, 100);
+        String nimi = "Powercreep";
+        int hp = 10;
+        int damage = 1;
+        int crit = 0;
+        int dodge = 30;
+        int xp = 100;
+
+        Rng toinenVihollisArpoja = new Rng(80, 100);
+        if (vihollisArpoja.randomNumber()) {
+            //Mobs enemy = new Mobs("Spearman", 6, 1, 0, 50, 200);
+            nimi = "Spearman";
+            hp = 6;
+            damage = 1;
+            crit = 0;
+            dodge = 50;
+            xp = 200;
+        } else if (toinenVihollisArpoja.randomNumber()) {
+            //Mobs enemy = new Mobs("lolcat", 50, 0, 0, 60, 500);
+            nimi = "Powercreep";
+            hp = 50;
+            damage = 0;
+            crit = 0;
+            dodge = 50;
+            xp = 500;
         }
-    
+        Mobs enemy = new Mobs(nimi, hp, damage, crit, dodge, xp);
+        return enemy;
+    }
 
     /**
      * Metodi joka toimii kohtaamisien viestin viejänä.
@@ -141,42 +141,6 @@ public class Gauntlet {
         return palautus;
     }
 
-    /**
-     * Metodi joka selvittää mitä tapahtuu kohtaamisien jälkeen.
-     *
-     * @param hero käyttäjän Pelaaja olio
-     * @param enemy kohdattu Mobs olio
-     */
-    public static void afterBattle(Pelaaja hero, Mobs enemy) {
-        if (!hero.tellIfAlive()) {
-            System.out.println(Gauntlet.deep());
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-            System.exit(0);
-        }
-        if (!enemy.tellAlive()) {
-            hero.gainXp(enemy.giveXp());
-        }
-
-        while (hero.getSp() > 0) {
-            //  System.out.println(hero.toString());
-            //  System.out.println("Choose to improve: A = Agility, S = Streight, D = Hp");
-            String k = lukija.nextLine();
-            Gauntlet.kehita(hero, k);
-        }
-
-    }
-
-    public static void outOfBattle() {
-
-    }
-
-    public static String deep() {
-        return "... A dancer with no legs...";
-    }
 }
     
 

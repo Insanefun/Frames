@@ -26,7 +26,10 @@ public class Taistelu {
     private JTextArea teksti;
     private String komento;
     private Moodi alpha;
-
+    /**
+     * Olion oletus konstruktori joka saa moodi rajapinnan täyttävän olion ja siihen liittyviä arvoja.
+     * @param alpha Moodi rajapinnan täyttävä olio jolta saadaan metodejen tarvitsemat arvot. 
+     */
     public Taistelu(Moodi alpha) {
         this.a = alpha.getA();
         this.s = alpha.getS();
@@ -36,7 +39,11 @@ public class Taistelu {
         this.osoitin = 1;
         this.hero = alpha.getHero();
     }
-
+    /**
+     * Metodi jolla määritetään taisteluiden aikaista logiikkaa.
+     */
+    
+    
     public void taisto() {
         if (this.osoitin == 1) {
             this.hero.heal(this.hero.getAgility());
@@ -51,7 +58,7 @@ public class Taistelu {
                 }
             }
             Mobs enemy = Gauntlet.generateEnemy();
-            HyokkaysNappi q = new HyokkaysNappi(this.teksti, this.alpha, "A", enemy, this);
+            HyokkaysNappi q = new HyokkaysNappi(this.teksti, this.alpha, "A", enemy);
             this.a.addActionListener(q);
             PuolustusNappi e = new PuolustusNappi(this.teksti, this.alpha, "D", enemy);
             this.d.addActionListener(e);
@@ -73,7 +80,7 @@ public class Taistelu {
                 }
             }
             Mobs enemy = new Mobs("thunderfury the blessed blade of the windseeker", 15, 3, 10, 15, 1000);
-            HyokkaysNappi q = new HyokkaysNappi(this.teksti, this.alpha, "A", enemy, this);
+            HyokkaysNappi q = new HyokkaysNappi(this.teksti, this.alpha, "A", enemy);
             this.a.addActionListener(q);
             PuolustusNappi e = new PuolustusNappi(this.teksti, this.alpha, "D", enemy);
             this.d.addActionListener(e);
@@ -83,7 +90,10 @@ public class Taistelu {
 
         }
     }
-
+    /**
+     * Metodi joka suorittaa taisteluiden välissä tapahtuvat operaatiot.
+     * @param enemy Mobs olio jota vastaan Pelaaja olio asetetaan.
+     */
     public void taisteluLoppu(Mobs enemy) {
         this.osoitin++;
         this.teksti.setText("Keepo");
@@ -128,7 +138,9 @@ public class Taistelu {
             }
         }
     }
-
+    /**
+     * Kasvattaa olion arvoa osoitin yhdellä.
+     */
     public void kasvata() {
         this.osoitin++;
     }

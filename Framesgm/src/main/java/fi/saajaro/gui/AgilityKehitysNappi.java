@@ -1,5 +1,6 @@
 package fi.saajaro.gui;
 
+import static fi.saajaro.gui.AloitusNappi.NL;
 import fi.saajaro.logiikka.Taistelu;
 import fi.saajaro.logiikka.hahmot.Pelaaja;
 import fi.saajaro.logiikka.moodit.Moodi;
@@ -24,9 +25,11 @@ public class AgilityKehitysNappi implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         hero.gainAgility();
-        this.kohde.setText(hero.toString());
+        this.kohde.setText(hero.toString() + NL + "Agility gives small bonus to crit chance, hit chance and blocked damage "
+                + NL + " Streight increases damage " + NL
+                + " Hp gives you more durability, lose it all and you die.");
         if (this.hero.getSp() == 0 && this.hero.getCurrentLevel() == 1) {
-            this.kohde.setText("Le ");
+            this.kohde.setText("Battle! A = attack, S = study, D = defend");
             Taistelu p = new Taistelu(this.alpha);
             p.taisto();
         } else if (this.hero.getSp() == 0) {

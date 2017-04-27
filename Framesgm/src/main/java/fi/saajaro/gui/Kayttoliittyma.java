@@ -61,6 +61,11 @@ public class Kayttoliittyma implements Runnable {
         panel.add(c);
         return panel;
     }
+    /**
+     * Metodi jolla käyttöliittymän tällä hetkellä käyttämä pelaaja olio saadaan helposti
+     * metodejen käyttöön.
+     * @return tällä hetkellä käytettävä pelaaja olio
+     */
 
     public Pelaaja getPelaaja() {
         return this.hero;

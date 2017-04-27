@@ -235,5 +235,11 @@ public class PelaajaTest {
         hero.takeDamage(-1);
         assertEquals(10, hero.getCurrentHp());
     }
+    @Test
+    public void tilaAnnetaanOikein() {
+        Pelaaja hero = new Pelaaja();
+        hero.takeDamage(1);
+        assertEquals("You took " + "1" + " damage from the attack of the enemy.", hero.getToiminta());
+    }
 
 }

@@ -30,7 +30,7 @@ public class TattleNappi implements ActionListener {
         this.komento = "S";
         this.alpha.setKomento(komento);
         Gauntlet.action(enemy, hero, "s");
-        this.alpha.getTeksti().setText(hero.getToiminta() + NL + hero.selfTattle() + NL + hero.tattle(enemy));
+        this.alpha.getTeksti().setText(hero.getToiminta() + NL + hero.selfTattle() + NL + hero.tattle(enemy) + " could it be " + enemy.getNimi());
 
     }
 

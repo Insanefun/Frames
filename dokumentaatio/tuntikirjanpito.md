@@ -14,3 +14,6 @@ Päivä | Tunnit | Kuvaus
 19.04.2017 | 9h | Luokkien uudelleen määrittely vanhojen luokkien kopiointi ja tiedostojen etsiminen
 20.04.2017 | 10h | Uuden luokan koodaus, raporttien luonti ja vanhojen luokkien etsimine
 21.04.2017 | 1h | Satunnais muuttujien lisäys luokkiin.
+25.04.2017 | 1h | Käyttöliittymän parantelu ja testien laajennus.
+26.04.2017 | 2h | Testien laajennus.
+26.04.2017 | 3h | Testien laajennus ja raporttien teko sekä käyttöohjeiden ja rakennekuvauksen luonti.

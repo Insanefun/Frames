@@ -2,6 +2,9 @@ package fi.saajaro.logiikka.hahmot;
 
 import fi.saajaro.logiikka.randomnumbergod.Rng;
 
+/*
+Luokka joka luo olioita joita pelaaja kohtaa.
+ */
 public class Mobs {
 
     /**
@@ -41,7 +44,24 @@ public class Mobs {
      * muodossa.
      */
     private String toiminta;
+    /**
+     * Oliolle asetettava integer arvo joka asetetaan luotaessa kertomaan
+     * asetetun hp arvon.
+     *
+     * @see fi.saajaro.logiikka.hahmot.Mobs#hp
+     */
+    private int maxHp;
 
+    /**
+     * Olion oletus konstruktori.
+     *
+     * @param nimi olioon liitettävä String nimi
+     * @param hp olioon liitettävä int hp
+     * @param damage olioon liitettävä int damage
+     * @param critical olioon liitettävä int crit
+     * @param dodge olioon liitettävä int dodge
+     * @param xpYield olioon liitettävä int xpYield
+     */
     public Mobs(String nimi, int hp, int damage, int critical, int dodge, int xpYield) {
         this.nimi = nimi;
         this.hp = hp;
@@ -51,6 +71,7 @@ public class Mobs {
         this.dodge = dodge;
         this.xpYield = xpYield;
         this.alive = true;
+        this.maxHp = hp;
     }
 
     /**
@@ -80,7 +101,7 @@ public class Mobs {
     public void takeDamage(int dmg) {
         if (this.dodgeRoll() == true) {
             this.currentHp = this.currentHp;
-            this.toiminta = "Dodge";
+            this.toiminta = "Enemy dodged your attack";
             this.hitDetector(false, dmg);
         } else {
             if (dmg < 0) {
@@ -142,6 +163,10 @@ public class Mobs {
         return this.toiminta;
     }
 
+    public String getNimi() {
+        return this.nimi;
+    }
+
     /**
      * Kertoo olion alive totuusarvon muille metodeille.
      *
@@ -176,8 +201,12 @@ public class Mobs {
      * @return String muotoinen esitys iskusta
      */
     public String hitDetector(Boolean hit, int damage) {
+        String tila = ", it looks vigorous.";
+        if (this.getHp() * 2 <= this.maxHp) {
+            tila = ", it seems quite weak.";
+        }
         if (hit == true) {
-            return this.nimi + " took " + damage + " damage.";
+            return this.nimi + " took " + damage + " damage" + tila;
         } else {
             return "Dodge";
         }

@@ -7,7 +7,7 @@ import fi.saajaro.logiikka.hahmot.Pelaaja;
 import fi.saajaro.logiikka.tapahtumat.Gauntlet;
 import javax.swing.SwingUtilities;
 
-public class Field {
+public class Main {
 
     public static void main(String[] args) {
         //Pelaaja hero = Gauntlet.luoHero();

@@ -35,11 +35,6 @@ public class GauntletTest {
     }
 
     @Test
-    public void deepOikein() {
-        assertEquals("... A dancer with no legs...", Gauntlet.deep());
-    }
-
-    @Test
     public void generateEnemyLuoElossaOleviaVIhollisia() {
         Mobs enemy = Gauntlet.generateEnemy();
         assertEquals(Boolean.TRUE, enemy.tellAlive());
@@ -89,4 +84,5 @@ public class GauntletTest {
         Gauntlet.kehita(hero, "D");
         assertEquals(11, hero.getCurrentHp());
     }
+
 }

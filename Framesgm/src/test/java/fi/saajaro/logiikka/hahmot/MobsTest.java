@@ -79,7 +79,7 @@ public class MobsTest {
     @Test
     public void kertooDamagenKunHit() {
         Mobs mob = new Mobs("powercreep", 10, 1, 2, 100, 4);
-        assertEquals("powercreep" + " took " + 1 + " damage.", mob.hitDetector(Boolean.TRUE, 1));
+        assertEquals("powercreep" + " took " + 1 + " damage, it looks vigorous.", mob.hitDetector(Boolean.TRUE, 1));
     }
 
     @Test
@@ -87,6 +87,24 @@ public class MobsTest {
         Mobs mob = new Mobs("powercreep", 10, 0, 0, 0, 0);
         mob.takeDamage(-2);
         assertEquals(10, mob.getHp());
+    }
+    @Test
+    public void takeDamageKunPieniNegatiivinen() {
+        Mobs mob = new Mobs("powercreep", 10, 0, 0, 0, 0);
+        mob.takeDamage(-1);
+        assertEquals(10, mob.getHp());
+    }
+    @Test
+    public void takeDamageJosDodge() {
+        Mobs mob = new Mobs("powercreep", 10, 0, 0, 100, 0);
+        mob.takeDamage(1);
+        assertEquals(10, mob.getHp());
+    }
+    @Test
+    public void toimintaOikeinJosDodge() {
+        Mobs mob = new Mobs("powercreep", 10, 0, 0, 100, 0);
+        mob.takeDamage(1);
+        assertEquals("Enemy dodged your attack", mob.getToiminta());
     }
 
 }

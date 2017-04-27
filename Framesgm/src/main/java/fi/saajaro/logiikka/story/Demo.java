@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-
+/**
+Luokka jonka tehtävänä on auttaa logiikka toimimaan käyttöliittymän kanssa.
+*/
 public class Demo implements Moodi {
 
     private int osoitin;
@@ -21,7 +23,15 @@ public class Demo implements Moodi {
     private JButton d;
     private JTextArea teksti;
     private String komento;
-
+    private Taistelu o;
+    /**
+     * Vakio konstruktori joka asettaa saamansa arvot oliolle.
+     * @param hero Käytettävä Pelaaja olio
+     * @param a logiikkaa kutsuva JButton
+     * @param s logiikkaa kutsuva JButton
+     * @param d logiikkaa kutsuva JButton
+     * @param teksti JTextArea jota metodit muuttavat
+     */
     public Demo(Pelaaja hero, JButton a, JButton s, JButton d, JTextArea teksti) {
         this.hero = hero;
         this.a = a;
@@ -30,6 +40,7 @@ public class Demo implements Moodi {
         this.teksti = teksti;
         this.osoitin = 0;
         this.komento = "q";
+        this.o = new Taistelu(this);
     }
 
     @Override
@@ -80,7 +91,9 @@ public class Demo implements Moodi {
     public void setKomento(String uusiKomento) {
         this.komento = uusiKomento;
     }
-
+    /**
+     * Metodi joka auttaa yhdistämään logiikkaa käyttöliittymään.
+     */
     public void taisto() {
         //ArrayList<ActionListener> k = new ArrayList();
         //for(ActionListener l : this.a.getActionListeners() ){
@@ -103,8 +116,11 @@ public class Demo implements Moodi {
         this.a.addActionListener(y);
         battle(this);
 
-    }
-
+    } 
+    /**
+     * Taisteluita ohjaava metodi joka saa parametrinä Moodi rajapinnan täyttävän olion.
+     * @param alpha Antaa metodin tarvitsemat arvot
+     */
     public void battle(Moodi alpha) {
         Pelaaja hero = alpha.getHero();
         Mobs enemy = Gauntlet.generateEnemy();
