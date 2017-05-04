@@ -8,4 +8,4 @@ Käyttäjä saa tietoa tilanteista tekstin muodossa ja hän voi reagoida annettujen 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md) <br />
 [PIT-raportti](https://htmlpreview.github.io/?https://github.com/Insanefun/Frames/blob/master/dokumentaatio/pit/PIT-raportti.html) <br />
 [CheckStyle raportti](https://htmlpreview.github.io/?https://github.com/Insanefun/Frames/blob/master/dokumentaatio/Checkstyle/checkstyle.html) <br />
-![Kaavio](dokumentaatio/kaaviot/frameskaavio2.png)  
+![Kaavio](dokumentaatio/kaaviot/frameskaavio3.png)  
