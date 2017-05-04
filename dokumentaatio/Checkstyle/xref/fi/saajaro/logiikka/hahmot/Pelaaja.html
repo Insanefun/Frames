@@ -162,7 +162,7 @@
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>             take = 0;
 <a class="jxr_linenumber" name="L155" href="#L155">155</a>         }
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>         <strong class="jxr_keyword">this</strong>.currentHp = <strong class="jxr_keyword">this</strong>.currentHp - take;
-<a class="jxr_linenumber" name="L157" href="#L157">157</a>         <strong class="jxr_keyword">this</strong>.toiminta = (<span class="jxr_string">"You took "</span> + take + <span class="jxr_string">" damage from the attack of the enemy."</span>);
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>         <strong class="jxr_keyword">this</strong>.toiminta = (<span class="jxr_string">"You took "</span> + take + <span class="jxr_string">" damage from the attack of the enemy, "</span> + <strong class="jxr_keyword">this</strong>.currentHp + <span class="jxr_string">" hp left."</span>);
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>         <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.currentHp &lt; 1) {
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>             <strong class="jxr_keyword">this</strong>.alive = false;
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>         }
@@ -311,7 +311,7 @@
 <a class="jxr_linenumber" name="L303" href="#L303">303</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.level;
 <a class="jxr_linenumber" name="L304" href="#L304">304</a>     }
 <a class="jxr_linenumber" name="L305" href="#L305">305</a> 
-<a class="jxr_linenumber" name="L306" href="#L306">306</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getlMaxHp() {
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getMaxHp() {
 <a class="jxr_linenumber" name="L307" href="#L307">307</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.hp;
 <a class="jxr_linenumber" name="L308" href="#L308">308</a>     }
 <a class="jxr_linenumber" name="L309" href="#L309">309</a> 

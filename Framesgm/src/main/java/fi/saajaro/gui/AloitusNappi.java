@@ -1,7 +1,7 @@
 package fi.saajaro.gui;
 
 import fi.saajaro.logiikka.hahmot.Pelaaja;
-import fi.saajaro.logiikka.story.Demo;
+import fi.saajaro.gui.story.Demo;
 import fi.saajaro.logiikka.tapahtumat.Gauntlet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +18,15 @@ public class AloitusNappi implements ActionListener {
     private JButton kohdeD;
     private Pelaaja hero;
 
+    /**
+     * Oletus konstruktori.
+     *
+     * @param kohde alue jolla olio ilmoittaa tapahtumista käyttäjälle.
+     * @param a käyttöliittymän nappi jota olio muuttaa
+     * @param s käyttöliittymän nappi jota olio muuttaa
+     * @param d käyttöliittymän nappi jota olio muuttaa
+     * @param hero pelaaja olio jota käyttöliitymässä käytetään
+     */
     public AloitusNappi(JTextArea kohde, JButton a, JButton s, JButton d, Pelaaja hero) {
 
         this.kohde = kohde;

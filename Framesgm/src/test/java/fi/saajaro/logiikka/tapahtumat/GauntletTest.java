@@ -84,5 +84,12 @@ public class GauntletTest {
         Gauntlet.kehita(hero, "D");
         assertEquals(11, hero.getCurrentHp());
     }
+    @Test
+    public void puolustaessaVihollinenEiVaurioitu() {
+        Pelaaja hero = new Pelaaja();
+        Mobs enemy = new Mobs("Powercreep", 10, 1, 0, 0, 100);
+        Gauntlet.action(enemy, hero, "D");
+        assertEquals(10, enemy.getHp());
+    }
 
 }

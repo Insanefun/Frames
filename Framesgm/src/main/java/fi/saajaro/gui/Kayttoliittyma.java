@@ -18,6 +18,9 @@ public class Kayttoliittyma implements Runnable {
     private JFrame frame;
     private Pelaaja hero;
 
+    /**
+     * Oletus konstruktori.
+     */
     public Kayttoliittyma() {
     }
 
@@ -61,9 +64,11 @@ public class Kayttoliittyma implements Runnable {
         panel.add(c);
         return panel;
     }
+
     /**
-     * Metodi jolla käyttöliittymän tällä hetkellä käyttämä pelaaja olio saadaan helposti
-     * metodejen käyttöön.
+     * Metodi jolla käyttöliittymän tällä hetkellä käyttämä pelaaja olio saadaan
+     * helposti metodejen käyttöön.
+     *
      * @return tällä hetkellä käytettävä pelaaja olio
      */
 

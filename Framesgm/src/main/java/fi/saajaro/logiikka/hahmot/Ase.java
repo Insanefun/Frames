@@ -19,7 +19,13 @@ public class Ase {
      * Olion mahdollinen erityis ominaisuus
      */
     private int effect;
-    
+    /**
+     * Oletus konstruktori.
+     * @param nimi olioon liittyvä String jolla sitä kutsutaan.
+     * @param damage int arvo jolla olio lisää siihen liitetyn olion damage arvoa
+     * @param user Pelaaja olio johon olio liitetään.
+     * @param effect int muotoinen tieto onko oliolla erityis vaikutuksia.
+     */
     public Ase(String nimi, int damage, Pelaaja user, int effect) {
         this.nimi = nimi;
         this.damage = damage;

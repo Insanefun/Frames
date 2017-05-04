@@ -17,6 +17,15 @@ public class TattleNappi implements ActionListener {
     private JTextArea kohde;
     private Moodi alpha;
 
+    /**
+     * Oletus konstruktori.
+     *
+     * @param kohde tekstialue jolla käyttäjälle viestitään.
+     * @param alpha Moodi rajapinnan täyttävä olio joka pitää sisällään tietoa
+     * muista olioista.
+     * @param komento String esitys napin komennosta.
+     * @param enemy Mobs olio joka liittyy metodiin.
+     */
     public TattleNappi(JTextArea kohde, Moodi alpha, String komento, Mobs enemy) {
         this.hero = alpha.getHero();
         this.kohde = kohde;
@@ -30,7 +39,7 @@ public class TattleNappi implements ActionListener {
         this.komento = "S";
         this.alpha.setKomento(komento);
         Gauntlet.action(enemy, hero, "s");
-        this.alpha.getTeksti().setText(hero.getToiminta() + NL + hero.selfTattle() + NL + hero.tattle(enemy) + " could it be " + enemy.getNimi());
+        this.alpha.getTeksti().setText("As you study enemy it attacks relentlessly" + NL + hero.getToiminta() + NL + hero.getToiminta() + NL + hero.selfTattle() + NL + hero.tattle(enemy) + NL + "You identify enemy as " + enemy.getNimi() + ".");
 
     }
 

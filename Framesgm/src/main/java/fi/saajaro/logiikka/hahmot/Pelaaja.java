@@ -154,7 +154,7 @@ public class Pelaaja {
             take = 0;
         }
         this.currentHp = this.currentHp - take;
-        this.toiminta = ("You took " + take + " damage from the attack of the enemy.");
+        this.toiminta = ("You took " + take + " damage from the attack of the enemy, " + this.currentHp + " hp left.");
         if (this.currentHp < 1) {
             this.alive = false;
         }
@@ -303,7 +303,7 @@ public class Pelaaja {
         return this.level;
     }
 
-    public int getlMaxHp() {
+    public int getMaxHp() {
         return this.hp;
     }
 

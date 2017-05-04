@@ -5,6 +5,7 @@
  */
 package fi.saajaro.logiikka.story;
 
+import fi.saajaro.gui.story.Demo;
 import fi.saajaro.logiikka.hahmot.Pelaaja;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
@@ -46,7 +47,7 @@ public class DemoTest {
 
     @Test
     public void arvotAsettuvatOikein() {
-        assertEquals(10, testi.getHero().getlMaxHp());
+        assertEquals(10, testi.getHero().getMaxHp());
         
     }
     

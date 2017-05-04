@@ -1,21 +1,29 @@
 package fi.saajaro.gui;
 
 import static fi.saajaro.gui.AloitusNappi.NL;
-import fi.saajaro.logiikka.Taistelu;
 import fi.saajaro.logiikka.hahmot.Pelaaja;
 import fi.saajaro.logiikka.moodit.Moodi;
-import fi.saajaro.logiikka.story.Demo;
+import fi.saajaro.gui.story.Demo;
 import fi.saajaro.logiikka.tapahtumat.Gauntlet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextArea;
 
+/**
+ * Luokka joka muokka JButton olita agilityn nostamiseen.
+ */
 public class AgilityKehitysNappi implements ActionListener {
 
     private JTextArea kohde;
     private Pelaaja hero;
     private Moodi alpha;
 
+    /**
+     * Oletus konstruktori.
+     *
+     * @param kohde alue jonka avulla käyttäjälle tiedotetaan mitä tapahtuu
+     * @param alpha käyttöliittymä jossa nappi on
+     */
     public AgilityKehitysNappi(JTextArea kohde, Moodi alpha) {
         this.hero = alpha.getHero();
         this.kohde = kohde;

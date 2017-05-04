@@ -16,6 +16,15 @@ public class PuolustusNappi implements ActionListener {
     private JTextArea kohde;
     private Moodi alpha;
 
+    /**
+     * Oletus konstruktori.
+     *
+     * @param kohde tekstialue jolla viestitään käyttäjälle
+     * @param alpha moodi rajapinnan täyttävä olio jossa tietoa käytettävistä
+     * olioista
+     * @param komento String esitys napin komennosta
+     * @param enemy Mobs olio joka liittyy metodeihin
+     */
     public PuolustusNappi(JTextArea kohde, Moodi alpha, String komento, Mobs enemy) {
         this.hero = alpha.getHero();
         this.kohde = kohde;

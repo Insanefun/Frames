@@ -1,7 +1,6 @@
 package fi.saajaro.gui;
 
 import static fi.saajaro.gui.AloitusNappi.NL;
-import fi.saajaro.logiikka.Taistelu;
 import fi.saajaro.logiikka.hahmot.Mobs;
 import fi.saajaro.logiikka.hahmot.Pelaaja;
 import fi.saajaro.logiikka.moodit.Moodi;
@@ -24,6 +23,14 @@ public class HyokkaysNappi implements ActionListener {
     private JButton s;
     private JButton d;
 
+    /**
+     * Oletus konstruktori.
+     *
+     * @param kohde tekstialue jolla olie viestii käyttäjälle
+     * @param alpha käyttöliittymä johon olio kiinnitetään
+     * @param komento String muoto komennolle joka napin tulee suorittaa
+     * @param enemy Mobs olio johon metodeja käytetään
+     */
     public HyokkaysNappi(JTextArea kohde, Moodi alpha, String komento, Mobs enemy) {
         this.hero = alpha.getHero();
         this.kohde = kohde;
@@ -58,9 +65,9 @@ public class HyokkaysNappi implements ActionListener {
                 //this.d.addActionListener(e);
             } else if (enemy.getHp() < 1) {
                 hero.gainXp(enemy.giveXp());
-                alpha.getTeksti().setText("Gained " + enemy.giveXp() + " xp");
+                alpha.getTeksti().setText(" Enemy defeated: Gained " + enemy.giveXp() + " xp");
                 if (hero.getSp() > 0) {
-                    alpha.getTeksti().setText("Enemy defeated: Unused skillpoints " + hero.getSp() + NL + "Agility gives small bonus to crit chance, hit chance and blocked damage "
+                    alpha.getTeksti().setText(alpha.getTeksti().getText() + NL + "Unused skillpoints " + hero.getSp() + NL + "Agility gives small bonus to crit chance, hit chance and blocked damage "
                             + NL + " Streight increases damage " + NL
                             + " Hp gives you more durability, lose it all and you die.");
                     ArrayList<JButton> k = new ArrayList();

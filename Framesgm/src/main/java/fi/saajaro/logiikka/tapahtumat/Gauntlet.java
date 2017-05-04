@@ -6,6 +6,7 @@ import fi.saajaro.logiikka.moodit.Moodi;
 import fi.saajaro.logiikka.randomnumbergod.Rng;
 import java.util.Scanner;
 import javax.swing.JTextArea;
+
 /**
  * Luokka joka auttaaa taisteluiden alustamisessa ja ylläpitämisessä.
  */
@@ -55,11 +56,10 @@ public class Gauntlet {
         }
 
     }/*/
-
     /**
      * Metodi joka luo vihollisen kohtaamisen alussa.
      *
-     * @return
+     * @return kuotu Mobs olio
      */
     public static Mobs generateEnemy() {
         Rng vihollisArpoja = new Rng(70, 100);
@@ -119,9 +119,7 @@ public class Gauntlet {
      * @param enemy kohde johon komennot toteutetaan
      * @param hero käyttäjän Pelaaja olio joka toteuttaa käskyt
      * @param komento komento jonka metodi suorittaa
-     * @see
-     * fi.saajaro.logiikka.tapahtumat.Gauntlet#turn(fi.saajaro.logiikka.hahmot.Mobs,
-     * fi.saajaro.logiikka.hahmot.Pelaaja)
+     * @return String muotoinen esitys tapahtuvista asioista.
      */
     public static String action(Mobs enemy, Pelaaja hero, String komento) {
         if (komento.equalsIgnoreCase("A")) {

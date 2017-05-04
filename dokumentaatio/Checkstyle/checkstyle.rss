@@ -116,20 +116,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.saajaro.logiikka.story.Demo.java">fi/saajaro/logiikka/story/Demo.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#fi.saajaro.gui.StreightKehitysNappi.java">fi/saajaro/gui/StreightKehitysNappi.java</a>
                 </td>
                 <td>
@@ -145,6 +131,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.saajaro.logiikka.tapahtumat.Gauntlet.java">fi/saajaro/logiikka/tapahtumat/Gauntlet.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.saajaro.gui.Taistelu.java">fi/saajaro/gui/Taistelu.java</a>
                 </td>
                 <td>
                   0
@@ -214,35 +214,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.saajaro.logiikka.moodit.Main.java">fi/saajaro/logiikka/moodit/Main.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#fi.saajaro.gui.Kayttoliittyma.java">fi/saajaro/gui/Kayttoliittyma.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.saajaro.logiikka.Taistelu.java">fi/saajaro/logiikka/Taistelu.java</a>
                 </td>
                 <td>
                   0
@@ -271,6 +243,34 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.saajaro.logiikka.moodit.Moodi.java">fi/saajaro/logiikka/moodit/Moodi.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.saajaro.main.Main.java">fi/saajaro/main/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.saajaro.gui.story.Demo.java">fi/saajaro/gui/story/Demo.java</a>
                 </td>
                 <td>
                   0

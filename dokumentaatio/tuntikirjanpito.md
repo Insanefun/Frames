@@ -17,3 +17,5 @@ Päivä | Tunnit | Kuvaus
 25.04.2017 | 1h | Käyttöliittymän parantelu ja testien laajennus.
 26.04.2017 | 2h | Testien laajennus.
 26.04.2017 | 3h | Testien laajennus ja raporttien teko sekä käyttöohjeiden ja rakennekuvauksen luonti.
+02.05.2017 | 3h | Käyttöliittymän parantelu ja javadoc dokumentaation laajennus.
+04.05.2017 | 3h | Käyttöliittymän ongelmien kartoitus ja korjaus raporttien tarkistus.

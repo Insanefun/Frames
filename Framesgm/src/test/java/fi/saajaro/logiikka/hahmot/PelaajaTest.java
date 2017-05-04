@@ -66,7 +66,7 @@ public class PelaajaTest {
     public void vaurioEiLaskeHp() {
         Pelaaja hero = new Pelaaja();
         hero.takeDamage(2);
-        assertEquals(10, hero.getlMaxHp());
+        assertEquals(10, hero.getMaxHp());
     }
 
     @Test
@@ -117,7 +117,7 @@ public class PelaajaTest {
     public void gainHpToimiiKunSp() {
         Pelaaja hero = new Pelaaja();
         hero.gainHp();
-        assertEquals(11, hero.getlMaxHp());
+        assertEquals(11, hero.getMaxHp());
     }
 
     @Test
@@ -129,7 +129,7 @@ public class PelaajaTest {
         hero.gainHp();
         hero.gainHp();
         hero.gainHp();
-        assertEquals(15, hero.getlMaxHp());
+        assertEquals(15, hero.getMaxHp());
     }
 
     @Test
@@ -239,7 +239,7 @@ public class PelaajaTest {
     public void tilaAnnetaanOikein() {
         Pelaaja hero = new Pelaaja();
         hero.takeDamage(1);
-        assertEquals("You took " + "1" + " damage from the attack of the enemy.", hero.getToiminta());
+        assertEquals("You took " + "1" + " damage from the attack of the enemy, 9 hp left.", hero.getToiminta());
     }
 
 }

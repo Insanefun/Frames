@@ -85,7 +85,13 @@ public class MobsTest {
     @Test
     public void damageNollaJosNegatiivinen() {
         Mobs mob = new Mobs("powercreep", 10, 0, 0, 0, 0);
-        mob.takeDamage(-2);
+        mob.takeDamage(-1);
+        assertEquals(10, mob.getHp());
+    }
+    @Test
+    public void damageNollaJosNolla() {
+        Mobs mob = new Mobs("powercreep", 10, 0, 0, 0, 0);
+        mob.takeDamage(0);
         assertEquals(10, mob.getHp());
     }
     @Test
@@ -105,6 +111,23 @@ public class MobsTest {
         Mobs mob = new Mobs("powercreep", 10, 0, 0, 100, 0);
         mob.takeDamage(1);
         assertEquals("Enemy dodged your attack", mob.getToiminta());
+    }
+    @Test
+    public void elossaKunHpYksi() {
+        Mobs mob = new Mobs("powercreep", 10, 0, 0, 0, 0);
+        mob.takeDamage(9);
+        assertEquals(true, mob.tellAlive());
+    }
+    @Test
+    public void kuollutKunHpNolla() {
+        Mobs mob = new Mobs("powercreep", 10, 0, 0, 0, 0);
+        mob.takeDamage(10);
+        assertEquals(false, mob.tellAlive());
+    }
+    @Test
+    public void encounterOikein() {
+        Mobs mob = new Mobs("powercreep", 10, 0, 0, 100, 0);
+        assertEquals("Encountered powercreep", mob.encounter());
     }
 
 }

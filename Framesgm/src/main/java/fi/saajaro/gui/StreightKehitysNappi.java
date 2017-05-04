@@ -1,10 +1,9 @@
 package fi.saajaro.gui;
 
 import static fi.saajaro.gui.AloitusNappi.NL;
-import fi.saajaro.logiikka.Taistelu;
 import fi.saajaro.logiikka.hahmot.Pelaaja;
 import fi.saajaro.logiikka.moodit.Moodi;
-import fi.saajaro.logiikka.story.Demo;
+import fi.saajaro.gui.story.Demo;
 import fi.saajaro.logiikka.tapahtumat.Gauntlet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +15,13 @@ public class StreightKehitysNappi implements ActionListener {
     private Pelaaja hero;
     private Moodi alpha;
 
+    /**
+     * Oletus konstruktori.
+     *
+     * @param kohde tekstialue jolla käyttäjälle viestitään.
+     * @param alpha Moodi rajapinnan täyttävä olio joka pitää sisällään tietoja
+     * muista olioista.
+     */
     public StreightKehitysNappi(JTextArea kohde, Moodi alpha) {
         this.hero = alpha.getHero();
         this.kohde = kohde;
